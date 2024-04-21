@@ -32,7 +32,6 @@ ADD crontab /etc/cron.d/hello-cron
 RUN chmod 0644 /etc/cron.d/hello-cron
 RUN crontab /etc/cron.d/hello-cron
 RUN touch /var/log/cron.log
-CMD cron && tail -f /var/log/cron.log
 RUN echo "1 * * * * su - Gamora -c \"/home/Rocket/get_the_juice.sh\"" | crontab -
 RUN service cron start
 
