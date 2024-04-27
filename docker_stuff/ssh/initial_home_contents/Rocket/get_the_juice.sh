@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# first argument is the key
+input=$1
+
+# check if input is empty
+if [[ -z $input ]]; then
+    exit 1
+fi
+
+echo input: $input
+
+
 calc_result() {
     local input=$1
     local result=0
@@ -49,7 +60,6 @@ decrypt_string() {
     echo $decrypted_string
 }
 
-read -p "Enter the key: " input
 
 encrypted_string="VXpKT2JGb3pTa1pPUkZaaFQwTXhUMVF4UWtaWU1scHpZVVpXVEZOck5YWmhXRlpvWTNwclBRPT0="
 result=$(calc_result "$input")
