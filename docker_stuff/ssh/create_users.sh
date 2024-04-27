@@ -3,7 +3,7 @@
 users=(Groot Drax Rocket Gamora Starlord EGO)
 passwds=(
     pneumonoultramicroscopicsilicovolcanoconiosis # Groot
-    I_4m_7h3_gr34t3st_0f_7h3m_4ll # Drax 
+    I_4m_7h3_gr34t3st_0f_7h3m_4ll # Drax
     1_4m_7h3_b357_p1l07 # Rocket
     1_4m_4_n0n-d4nc3r_0k? # Gamora
     Y0u_m1gh7_kn0w_m3_45_Starlord # Star-Lord
