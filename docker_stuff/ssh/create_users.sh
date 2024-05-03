@@ -42,10 +42,16 @@ echo "Ownership changed for EGO and /home"
 
 usermod -aG sudo EGO
 
-groupadd --users Starlord,Gamora couple
+groupadd couple
+usermdo -aG couple Starlord
+usermod -aG couple Gamora
 mkdir -p /etc/system/couple
 chown Starlord:couple /etc/system/couple
 chmod 770 /etc/system/couple
 echo "#!/bin/bash\necho You're a dancer" > /etc/system/couple/random.sh
 chmod 4770 /etc/system/couple/random.sh
 chown Starlord:couple /etc/system/couple/random.sh
+
+mkdir -p /var/run/docker
+chown root:docker /var/run/docker
+chmod 770 /var/run/docker

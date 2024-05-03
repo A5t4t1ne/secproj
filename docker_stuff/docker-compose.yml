@@ -20,17 +20,26 @@ services:
     build: ./ssh/
     ports:
       - 2222:22
-
-  vsftpd:
-    image: fauria/vsftpd
-    container_name: ftp-server
-    environment:
-      FTP_USER: "anonymous"
-      FTP_PASS: "anonymous"
-      PASV_ADDR_RESOLVE: "YES"
-    ports:
-      - 20:20
-      - 21:21
     volumes:
-      - ./ftp/pub:/home/vsftpd
-      - /var/log/ftp:/var/log/vsftpd
+      - /var/run/docker.sock:/tmp/mimimi/docker.sock
+
+  ftp:
+    build: ./ftp/
+    ports:
+      - "20:20"
+      - "21:21"
+    volumes:
+      - ./ftp/pub:/home/ftpusers
+
+  # vsftpd:
+  #   image: fauria/vsftpd
+  #   container_name: ftp-server
+  #   environment:
+  #     FTP_ANONYMOUS: "true"
+  #     PASV_ADDR_RESOLVE: "YES"
+  #   ports:
+  #     - 20:20
+  #     - 21:21
+  #   volumes:
+  #     - ./ftp/pub:/var/vsftpd
+  #     - /var/log/ftp:/var/log/vsftpd
