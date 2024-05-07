@@ -51,7 +51,7 @@ RUN crontab /etc/cron.d/get_the_juice
 RUN service cron restart
 
 RUN echo "r00t_fl4g: 1_4m_th3_r00t_0f_4ll_3v1l" > /root/flag.txt
-RUN echo "root:very_long_and_complex_root_passwd_lol_4321"  | chpasswd
+RUN echo "root:very_long_passwd_lol_4321"  | chpasswd
 # RUN echo 'root:root' | chpasswd
 
 
