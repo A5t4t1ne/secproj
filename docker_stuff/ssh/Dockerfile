@@ -50,16 +50,9 @@ RUN usermod -aG Rocket Gamora
 RUN crontab /etc/cron.d/get_the_juice
 RUN service cron restart
 
-# Startup
-COPY startup.sh /startup.sh
-RUN chmod +x /startup.sh
-COPY startup_machine.service /etc/systemd/system/startup_machine.service
-RUN chmod 655 /etc/systemd/system/startup_machine.service
-RUN systemctl enable startup_machine.service
-
 RUN echo "r00t_fl4g: 1_4m_th3_r00t_0f_4ll_3v1l" > /root/flag.txt
-# RUN echo "root:very_long_and_complex_root_passwd_lol_4321"  | chpasswd
-RUN echo 'root:root' | chpasswd
+RUN echo "root:very_long_and_complex_root_passwd_lol_4321"  | chpasswd
+# RUN echo 'root:root' | chpasswd
 
 
 EXPOSE 22
