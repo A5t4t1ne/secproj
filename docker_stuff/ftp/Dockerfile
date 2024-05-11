@@ -11,8 +11,9 @@ RUN ls -la /
 EXPOSE 20 21
 
 RUN touch /var/log/xferlog
-ADD start_ftp.sh /start_ftp.sh
-RUN chown root:root /start_ftp.sh
+COPY start_ftp.sh /start_ftp.sh
+RUN chown ftp:ftp /start_ftp.sh
+RUN chmod +x /start_ftp.sh
 CMD ["/start_ftp.sh"]
 
 
