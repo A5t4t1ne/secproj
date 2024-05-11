@@ -1,2 +1,4 @@
 *
-!docker_stuff
+!.gitignore
+!docker_stuff/
+!docker_stuff/*
