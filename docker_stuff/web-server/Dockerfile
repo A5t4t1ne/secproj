@@ -4,7 +4,8 @@ RUN mkdir -p /var/www/html/images
 RUN chown -R www-data:www-data /var/www/html/images
 RUN chmod -R 755 /var/www/html/images
 
-RUN mkdir -p /var/www/html/groot_stuff
+RUN mkdir -p /var/www/html/personal_groot_stuff
+COPY ./groots_wordlist.txt /var/www/html/groot_stuff/wordlist.txt
 
 # Start (default command from base image)
 # CMD ["nginx", "-g", "daemon off;"]
