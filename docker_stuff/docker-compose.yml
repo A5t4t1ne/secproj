@@ -29,5 +29,5 @@ services:
       - "20:20"
       - "21:21"
     volumes:
-      - ./ftp/pub:/home/ftpusers
+      - ./ftp/pub:/var/ftp/pub
 
