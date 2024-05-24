@@ -28,6 +28,6 @@ services:
     ports:
       - "20:20"
       - "21:21"
-    volumes:
-      - ./ftp/pub:/var/ftp/pub
+        #    volumes:
+        #      - ./ftp/pub:/var/ftp/pub
 

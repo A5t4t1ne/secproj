@@ -2,3 +2,4 @@
 !.gitignore
 !docker_stuff/
 !docker_stuff/*
+!README.md
