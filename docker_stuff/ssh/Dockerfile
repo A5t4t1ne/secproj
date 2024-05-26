@@ -32,9 +32,10 @@ RUN mkdir /var/run/sshd
 
 # run user-creation and home-directory management script
 COPY create_users.sh create_users.sh
-RUN chmod +x create_users.sh && /create_users.sh
-RUN rm create_users.sh
 COPY initial_home_contents /home
+RUN chmod +x create_users.sh && ./create_users.sh 
+# RUN /create_users.sh rights_only 
+# RUN rm create_users.sh
 
 # Groot to Drax
 RUN mkdir -p /home/common_playground

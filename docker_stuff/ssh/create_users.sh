@@ -19,7 +19,29 @@ passwds=(
     7h3_un1v3rs3_n33d5_t0_b3_m3 # EGO
 )
 
-# create users only if they don't exist
+
+if [[ $1 == "rights_only" ]]; then
+	for i in "${!users[@]}"; do
+		chown -R "${users[$i]}":"${users[$i]}" /home/"${users[$i]}"
+		chmod "${home_rights[$i]}" /home/"${users[$i]}"
+	done
+
+	echo $(getent passwd EGO)
+	echo $(getent group celestials)
+
+	chown EGO:celestials /home/Celestials
+	chmod 770 /home/Celestials
+	echo "Ownership changed for Celestials"
+
+	mkdir -p /var/run/docker
+	chown root:docker /var/run/docker
+	chmod 770 /var/run/docker
+
+	echo "rights only changed" 
+	exit
+fi
+
+# create all users
 for i in "${!users[@]}"; do
     if id "${users[$i]}" &>/dev/null; then
         echo "User ${users[$i]} already exists"
@@ -33,28 +55,19 @@ for i in "${!users[@]}"; do
     echo "${users[$i]}:${passwds[$i]}" | chpasswd
 done
 
-groupadd --users Starlord,EGO celestials
+groupadd celestials
+usermod -aG celestials EGO
+usermod -aG celestials Starlord
 echo "Group celestials created and Starlord and EGO added to it"
 
 chown root:celestials /home/Celestials
-chmod 750 /home/Celestials
-chown root:root /home
+chmod 770 /home/Celestials
 echo "Ownership changed for EGO and /home"
 
 usermod -aG sudo EGO
 
 # yes I know it's ugly. Idc
 usermod -aG Rocket Gamora
-
-# groupadd couple
-# usermdo -aG couple Starlord
-# usermod -aG couple Gamora
-# mkdir -p /etc/system/couple
-# chown Starlord:couple /etc/system/couple
-# chmod 770 /etc/system/couple
-# echo "#!/bin/bash\necho You're a dancer" > /etc/system/couple/random.sh
-# chmod 4770 /etc/system/couple/random.sh
-# chown Starlord:couple /etc/system/couple/random.sh
 
 mkdir -p /var/run/docker
 chown root:docker /var/run/docker
