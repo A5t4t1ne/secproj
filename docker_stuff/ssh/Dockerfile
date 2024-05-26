@@ -7,6 +7,7 @@ RUN apt-get update && \
     sudo \
     curl \
 	cron \
+	netcat \
     apt-transport-https \
     ca-certificates \
     software-properties-common \
