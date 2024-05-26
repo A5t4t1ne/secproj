@@ -31,7 +31,6 @@ COPY sshd_config /etc/ssh/sshd_config
 RUN mkdir /var/run/sshd
 
 # run user-creation and home-directory management script
-RUN mkdir /home
 COPY create_users.sh create_users.sh
 RUN chmod +x create_users.sh && /create_users.sh
 RUN rm create_users.sh
