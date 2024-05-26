@@ -20,6 +20,7 @@ services:
     build: ./ssh/
     ports:
       - 22:22
+      - 8000:8000
     volumes:
       - /var/run/docker.sock:/tmp/mimimi/docker.sock
 
@@ -28,6 +29,3 @@ services:
     ports:
       - "20:20"
       - "21:21"
-        #    volumes:
-        #      - ./ftp/pub:/var/ftp/pub
-
