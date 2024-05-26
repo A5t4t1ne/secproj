@@ -6,6 +6,7 @@ RUN apt-get update && \
     vim \
     sudo \
     curl \
+	cron \
     apt-transport-https \
     ca-certificates \
     software-properties-common \
@@ -44,7 +45,7 @@ RUN chmod 764 /home/common_playground/groot_is_learning.py
 COPY ./sudoers /etc/sudoers
 
 # cronjob
-RUN apt-get install -y cron
+# RUN apt-get install -y cron
 RUN chmod 744 /home/Rocket/get_the_juice.sh
 RUN chown Rocket:Rocket /home/Rocket/get_the_juice.sh
 COPY get_the_juice_cron /etc/cron.d/get_the_juice
