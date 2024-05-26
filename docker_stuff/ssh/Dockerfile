@@ -1,13 +1,13 @@
 FROM ubuntu:latest
 
-RUN apt update && \
-    apt install -y \
+RUN apt-get update && \
+    apt-get install -y \
     openssh-server \
     vim \
     sudo \
     curl \
 	cron \
-	netcat \
+	netcat-openbsd \
     apt-transport-https \
     ca-certificates \
     software-properties-common \
