@@ -2,4 +2,5 @@
 !.gitignore
 !docker_stuff/
 !docker_stuff/**/*
+!start_ctf.service
 !README.md
